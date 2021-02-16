@@ -47,9 +47,9 @@ class Trainer():
 
 if __name__ == "__main__":
     # get data$
-    df = get_data()
+    df = get_data(nrows=10_000)
     # clean data
-    df = clean_data()
+    df = clean_data(df, test=False)
     # set X and y
     X = df.drop(columns='fare_amount')
     y = df['fare_amount']

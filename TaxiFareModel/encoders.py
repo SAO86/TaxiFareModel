@@ -1,10 +1,12 @@
 from sklearn.base import BaseEstimator, TransformerMixin
-
+import pandas as pd
+from data import get_data, clean_data
+from utils import haversine_vectorized, compute_rmse
 
 class TimeFeaturesEncoder(BaseEstimator, TransformerMixin):
     """Extract the day of week (dow), the hour, the month and the year from a
     time column."""
-     def __init__(self, time_column, time_zone_name='America/New_York'):
+    def __init__(self, time_column, time_zone_name='America/New_York'):
         self.time_column = time_column
         self.time_zone_name = time_zone_name
 
